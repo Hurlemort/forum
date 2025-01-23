@@ -1,0 +1,25 @@
+{% extends 'admin/backbase.html' %}
+
+{% block content %}
+<div>
+  <table>
+    <thead class="place-content-stretch">
+      <tr>
+        <th>Username</th>
+        <th>Password</th>
+      </tr>
+    </thead>
+
+    {% for users in users %}
+    <tbody class="place-content-stretch">
+      <td class = "border border-purple-800 border-2 rounded-lg p-2">{{users['username']}}</td>
+      <td class = "border border-purple-800 border-2 rounded-lg p-2">{{users['password']}}</td>
+      
+      <td class = "border-solid border-2 rounded-lg p-3 border-gray-900 hover:shadow-lg hover:text-zinc-200 hover:bg-gray-900 hover:duration-200 hover:border-purple-800 bg-purple-800 text-xl flex justify-center border-2"><a href="">Read</a></td>
+      <td class = "border-solid border-2 rounded-lg p-3 border-gray-900 hover:shadow-lg hover:text-zinc-200 hover:bg-gray-900 hover:duration-200 hover:border-purple-800 bg-purple-800 text-xl flex justify-center border-"><a href="">Update</a></td>
+      <td class = "border-solid border-2 rounded-lg p-3 border-gray-900 hover:shadow-lg hover:text-zinc-200 hover:bg-gray-900 hover:duration-200 hover:border-purple-800 bg-purple-800 text-xl flex justify-center border-"><a href="">Delete</a></td>
+    </tbody>
+    {% endfor %}
+  </table>
+</div>
+{% endblock %}

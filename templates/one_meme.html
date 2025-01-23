@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="m-12">
+  <section class="flex pb-12 justify-between">
+    <section class="w-8/12">
+      <p class="text-4xl pb-6">{{meme['title']}}</p>
+      <div class="w-7/8" >
+        <img class="border-blue-800 border-2 rounded-md" src="{{meme['image']}}" />
+      </div>
+    </section>
+    
+    <div class="w-3/12 mt-3">
+      <p class="text-3xl pb-3">{{meme['creator']}}</p>
+      <p class="pb-8 text-2xl"><i>{{meme['date']}}</i></p>
+      <p class="text-xl text-wrap break-words overflow-hidden">{{meme['description']}}</p>
+    </div>
+  </section>
+  
+  <form class="flex w-full mb-6 justify-between" method="POST">
+    <textarea cols="180" rows="5" name="comment" class="focus:text-black focus:bg-zinc-200 bg-gray-900 rounded-lg border-2 border-blue-800 focus:border-blue-800 mr-6 p-6" placeholder="Comment here"></textarea>
+    <button type="submit" class="border-solid border-2 rounded-lg p-3 border-gray-900 hover:shadow-lg hover:text-zinc-200 hover:bg-gray-900 hover:duration-200 hover:border-blue-800 bg-blue-800 text-2xl border-2 w-1/4 h-12 self-center flew items-center pb-12">Post</button>
+  </form>
+  
+  <section>
+    <div class="flex justify-center pb-6 text-2xl">
+      <h2>Comments:</h2>
+    </div>
+    <div class="justify-center">
+      {% if Comments %}
+        {% for Comment in Comments %}
+          <div class="flex justify-start border-2 border-blue-800 rounded-md w-full mb-6">
+            <p class="text-xl border-r-blue-800 border-2 border-t-0 border-b-0 border-l-0 px-6 py-4">{{Comment.author}}</p>
+            <p class="px-6 py-4 w-full text-wrap break-words overflow-hidden">{{Comment.comment}}</p>
+          </div>
+        {% endfor %}
+      {% else %}
+        <p>No comments for now</p>
+      {% endif %}
+    </div>
+  </section>
+  
+{% endblock %}
+

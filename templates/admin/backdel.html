@@ -1,0 +1,32 @@
+{% extends 'admin/backbase.html' %}
+
+{% block content %}
+<div class="m-12">
+  <section class="flex pb-12 justify-between">
+    <section class="w-8/12">
+      <p class="text-4xl pb-6">{{meme['title']}}</p>
+      <div class="w-7/8" >
+        <img class="border-purple-800 border-2 rounded-md" src="{{meme['image']}}" />
+      </div>
+    </section>
+
+    <div class="w-3/12 mt-3">
+      <p class="text-3xl pb-3">{{meme['creator']}}</p>
+      <p class="pb-8 text-2xl"><i>{{meme['date']}}</i></p>
+      <p class="text-xl">{{meme['description']}}</p>
+    </div>
+  </section>
+
+  <div class="flex w-full mb-6 justify-between" method="POST">
+    <p class="focus:text-black w-full focus:bg-zinc-200 bg-gray-900 rounded-lg text-3xl border-2 border-purple-800 focus:border-purple-800 mr-6 p-6">
+      Are you sure you want to delete this meme ?
+    </p>
+    <form action="/nodel" method="post" class="self-center w-1/4 h-full text-center border-solid border-2 rounded-lg p-3 hover:border-gray-900 hover:shadow-lg text-zinc-200 bg-gray-900 hover:duration-200 border-purple-800 hover:bg-purple-800 text-3xl border-2 w-1/4 h-12 mr-3">
+      <button type="submit" id="buttonDelete" class="self-center flew items-center">NO</button>
+    </form>
+    <form action="/yesdel/{{meme['_id']}}" method="post" class="self-center w-1/4 h-full text-center border-solid border-2 rounded-lg p-3 border-gray-900 hover:shadow-lg text-zinc-200 hover:bg-gray-900 hover:duration-200 hover:border-purple-800 bg-purple-800 text-3xl border-2 w-1/4 h-12 ml-3">
+      <button type="submit" id="buttonDelete" class="self-center flew items-center">YES</button>
+    </form>
+  </div>
+
+{% endblock %}

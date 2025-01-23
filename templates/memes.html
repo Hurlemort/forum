@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="grid grid-cols-3 gap-2">
+  
+  {% for memes in memes %}
+  
+  <!-- Un lien <a href="..."></a> entoure chaque carte - ainsi chaque carte mène à la page correspondante -->
+  <a href="/memes/one_meme/{{memes['_id']}}">
+
+    <!-- Bloc div correspondant à une carte - le background de fond du bloc est l'image du meme -->
+    <div class="border-solid border-2 rounded-lg border-gray-900 hover:shadow-lg hover:text-zinc-200 hover:bg-gray-900 hover:duration-200 hover:border-blue-800 bg-[url('{{memes['image']}}')] bg-no-repeat bg-cover text-xl flex justify-center border-2 h-96">
+
+      <!-- A l'intérieur, un autre bloc div remplit tout l'espace et consiste en un dégradé du transparent vers le noir.
+      C'est un bloc flex avec flex-col (=le contenu à l'intérieur sera organisé de haut en bas) et justify-end (=le contenu à l'intérieur sera justifié vers la fin - donc tout en bas) -->
+      <div class="w-full h-full border-solid rounded-lg bg-gradient-to-b from-transparent via-transparent to-black flex flex-col justify-end">
+        
+        <!-- Enfin, l'unique bloc div à l'intérieur qui sera donc mis tout en bas. Il contient les différents paragraphes etc. que vous voulezz afficher -->
+        <div class="truncate">
+          <p class="ml-3">{{memes['creator']}}</p>
+          <p class="ml-3">"{{memes['description']}}"</p>
+        </div>
+      </div>
+    </div>
+  </a>
+  {% endfor %}
+  
+</div>
+  
+{% endblock %}

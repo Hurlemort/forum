@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="static/styles.css"/> 
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script defer src="static/script.js"></script>
+  <script src="https://code.jquery.com/jquery-3.6.3.min.js"></script>
+
+  <title>NEALE</title>
+
+</head>
+
+
+<body class="bg-gray-900 text-zinc-200 px-4">
+
+
+  <header class="bg-gray-900 flex justify-between py-12 ">
+    <h1 class="text-5xl p-8"> <a href="/">NEALE</a></h1>
+
+    <nav>
+      <ul class="flex space-x-10">
+        {% if session['user'] %}
+        <li class="border-solid border-2 rounded-lg p-3 border-gray-900 hover:shadow-lg hover:text-zinc-200 hover:bg-gray-900 hover:duration-200 hover:border-purple-800 bg-purple-800 text-3xl col-start-2 flex justify-center border-2 p-9"><a href="/user">Profile</a></li>
+        <li class="border-solid border-2 rounded-lg p-3 border-gray-900 hover:shadow-lg hover:text-zinc-200 hover:bg-gray-900 hover:duration-200 hover:border-purple-800 bg-purple-800 text-3xl col-start-2 flex justify-center border-2 p-9"><a href="/memes/new">New Meme</a></li>
+        <li class="border-solid border-2 rounded-full p-3 border-gray-900 hover:shadow-lg hover:text-zinc-200 hover:bg-gray-900 hover:duration-200 hover:border-purple-800 bg-purple-800 text-3xl col-start-2 flex justify-center border-2"><a href="/user"><img class='h-24' src="static/Images/icone_prof.png"/></a></li>
+        {% else %}
+        <li class="border-solid border-2 rounded-lg p-3 border-gray-900 hover:shadow-lg hover:text-zinc-200 hover:bg-gray-900 hover:duration-200 hover:border-purple-800 bg-purple-800 text-3xl col-start-2 flex justify-center border-2 p-9"><a href="/login">Log In</a></li>
+        <li class="border-solid border-2 rounded-lg p-3 border-gray-900 hover:shadow-lg hover:text-zinc-200 hover:bg-gray-900 hover:duration-200 hover:border-purple-800 bg-purple-800 text-3xl col-start-2 flex justify-center border-2 p-9"><a href="/signup">Sign Up</a></li>      
+        {% endif %}
+      </ul>
+    </nav>
+  </header>
+
+
+  <main class="bg-gray-900 border-purple-800 border-solid border-2 rounded-lg p-3">
+    <!-- Corps de page -->
+    {% block content %}
+
+    {% endblock %}
+  </main>
+
+
+  <footer class="bg-gray-900 p-5 text-align">
+    <p> NEALE©, Touts droits réservés. </p>
+  </footer>
+
+
+  </body>
+</html>

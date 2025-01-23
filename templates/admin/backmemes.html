@@ -1,0 +1,45 @@
+{% extends 'admin/backbase.html' %}
+
+{% block content %}
+<div>
+  <table>
+    <thead>
+      <tr>
+        <th class="w-2/10">Title</th>
+        <th class="w-2/10">Description</th>
+        <th class="w-2/10">Author</th>
+        <th class="w-1/10">Date</th>
+        <th class="w-3/10">Image</th>
+      </tr>
+    </thead>
+      {% for meme in memes %}
+      <tbody class="border border-purple-800 border-2 rounded-xl">
+        <td class = " min-w-64 border border-purple-800 border-2 rounded-lg p-2">
+          {{meme['title']}}
+        </td>
+        <td class = " min-w-64 max-w-md border border-purple-800 border-2 rounded-lg p-2 text-wrap break-words overflow-hidden">
+          {{meme['description']}}
+        </td>
+        <td class = " min-w-64 border border-purple-800 border-2 rounded-lg p-2 text-center">
+          {{meme['creator']}}
+        </td>
+        <td class = " min-w-32 border border-purple-800 border-2 rounded-lg p-2 text-center">
+          {{meme['date']}}
+        </td>
+        <td class = " w-3/10 border border-purple-800 border-2 rounded-lg p-2">
+          <img src="{{meme['image']}}" class="max-w-full min-h-64">
+        </td>
+        <td class = "border-solid border-2 rounded-lg p-3 border-gray-900 hover:shadow-lg hover:text-zinc-200 hover:bg-gray-900 hover:duration-200 hover:border-purple-800 bg-purple-800 text-xl flex justify-center border-2 mt-4 mx-4">
+          <a href="/admin/one_meme/{{meme['_id']}}">Read</a>
+        </td>
+        <td class = "border-solid border-2 rounded-lg p-3 border-gray-900 hover:shadow-lg hover:text-zinc-200 hover:bg-gray-900 hover:duration-200 hover:border-purple-800 bg-purple-800 text-xl flex justify-center border-2 mt-4 mx-4">
+          <a href="">Update</a>
+        </td>
+        <td class = "border-solid border-2 rounded-lg p-3 border-gray-900 hover:shadow-lg hover:text-zinc-200 hover:bg-gray-900 hover:duration-200 hover:border-purple-800 bg-purple-800 text-xl flex justify-center border-2 mt-4 mx-4">
+          <a href="/admin/backdel/{{meme['_id']}}">Delete</a>
+        </td>
+      </tbody>
+      {% endfor %}
+  </table>
+</div>
+{% endblock %}

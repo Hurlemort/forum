@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <div class="grid grid-cols-3 bg-blue-800 py-16 rounded-lg">
+    <form method="POST" action="" name="form" class="border-12 border-gray-900 shadow-xl rounded-lg py-6 px-24 bg-gray-900 col-start-2">
+      {% if erreur %}
+        <div class="py-5">
+          <label class="text-zinc-200">
+            {{erreur}}
+          </label>
+          <br/>
+        </div>
+      {% endif %}
+          <label class="flex text-xl text-zinc-200 pb-2">
+          Username
+        </label>
+        <div class="flex border-2 rounded-lg p-1 border-gray-900 h-16 bg-zinc-200">
+          <input name="username" type="text" placeholder="Username" class="border-gray-900 focus:outline-none bg-zinc-200 placeholder:text-black hover:placeholder:text-zinc-200 w-full text-black"/>
+        </div>
+      <div class="py-5">
+        <label class="flex text-xl text-zinc-200 pb-2">
+          Password
+        </label>
+        <div class="flex justify-between border-2 rounded-lg p-1 border-gray-900 bg-zinc-200">
+          <input name="password" type="password" placeholder="password" class="border-gray-900 focus:outline-none bg-zinc-200 placeholder:text-black hover:placeholder:text-zinc-200 w-5/6 text-black" id="LoginPassword"/>
+          <img id="hidebutton1" src="static/Images/hidden.png" class="box-border w-16 h-16 p-4"/>
+        </div>
+      </div>
+      <div class="grid grid-cols-3">
+        <div type="submit" onClick="document.form.submit()" class="rounded-lg p-2 border-gray-900 hover:shadow-lg hover:text-zinc-200 hover:bg-gray-900 hover:duration-200 hover:border-blue-800 bg-blue-800 text-xl col-start-2 flex justify-center border-2">
+          <b>Connect</b>
+        </div>
+      </div>
+      <br/>
+    </form>
+  </div>
+{% endblock %}
