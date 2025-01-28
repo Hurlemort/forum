@@ -28,7 +28,7 @@ def index():
     return render_template('index.html', memes=memes, username=session['user'])
   else:
     return render_template('index.html', memes=memes)'''
-  return render_template('index.html')
+  return render_template('templates/index.html')
 
 @app.route('/research', methods=['POST','GET'])
 def research():
